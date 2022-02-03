@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UID Assignment(usn -012)</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'Merriweather', serif;
+    }
+
+    body {
+      background-color: #FFFFE0;
+    }
+
+    .container {
+      background-color: #F08080;
+      border: 1px solid black;
+      max-width: 900px;
+      margin: 8px auto;
+      border-radius: 8px;
+      /* border: 1px solid pink; */
+      padding-left: 16px;
+      padding-right: 16px;
+      text-align: center;
+    }
+
+    .question {
+      margin-top: 16px;
+      margin-bottom: 16px;
+      position: relative;
+      text-align: left;
+    }
+
+    .innerContainer {
+      display: flex;
+      align-items: end;
+      width: 100%;
+      /* justify-content: center; */
+    }
+
+    .radioContainer {
+      display: flex;
+      align-self: center;
+      flex-direction: column;
+      justify-content: center;
+      margin-right: 200px;
+    }
+
+    .radioContainer>div {
+      margin-bottom: 24px;
+    }
+
+    .imageContainer {
+      text-align: center;
+    }
+
+    .imageContainer>img {
+      border: 1px solid pink;
+      width: 250px;
+      height: 192px;
+      object-fit: cover;
+    }
+
+    .checked {
+      color: orange;
+    }
+
+    .radioContainer>.starInput {
+      width: 100%;
+      display: inline-block;
+    }
+
+    h4 {
+      font-size: 18px;
+    }
+
+    input {
+      border-radius: 8px;
+      padding: 4px;
+      border: 1px solid black;
+      margin-top: 4px;
+    }
+
+    textarea {
+      background: #E5DCC3;
+      margin-top: 4px;
+      display: block;
+      width: 100%;
+      resize: none;
+      padding: 8px;
+      border-radius: 8px;
+    }
+
+    fieldset {
+      padding: 4px 16px;
+      border-radius: 8px;
+    }
+
+    fieldset>div {
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+
+    button {
+      padding: 8px;
+      border-radius: 8px;
+      outline: none;
+      border: 1px solid black;
+      position: relative;
+      margin-top: 8px;
+    }
+
+    .tooltipContainer {
+      position: relative;
+    }
+
+    #tooltip {
+      /* display: none; */
+      position: absolute;
+      top: -8px;
+      right: -200px;
+      z-index: 1050;
+      visibility: hidden;
+      /* width: fit-content; */
+      /* margin-top: 8px; */
+      background-color: antiquewhite;
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    #tooltip:before {
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      position: absolute;
+      left: -8px;
+      border-right: 8px solid antiquewhite;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="question">
+      <button onmouseover="show(tooltip)" onmouseout="hide(tooltip)">
+        HELLO EVERYONE
+        <div id="tooltip">
+          We are here to serve You..
+        </div>
+      </button>
+    </div>
+
+    <div class="question">
+      <h4 style='margin: 8px auto;'>My favorite dish is:</h4>
+
+      <div class="innerContainer">
+        <div class="radioContainer">
+          <div>
+            <input type="radio" id="roll" name="dish" value="roll">
+            <label for="roll">Roll</label>
+          </div>
+          <div>
+            <input type="radio" id="pizza" name="dish" value="pizza">
+            <label for="pizza">Pizza</label>
+          </div>
+          <div>
+            <input type="radio" id="burger" name="dish" value="burger" checked>
+            <label for="burger" checked>Burger</label>
+          </div>
+        </div>
+        <div class="imageContainer">
+          <img id="dishImage" src="" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="question">
+
+      <fieldset>
+        <legend>Address</legend>
+
+        <div>
+          <label for="country">Country</label>
+          <select id="country">
+            <option value="india">India</option>
+            <option value="brazil">Brazil</option>
+           <option value="singapore">Sigapore</option>
+            <option value="japan">Japan</option>
+            <option value="australia">Australia</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="state">State</label>
+          <select id="state">
+            <option value="wb">West Bengal</option>
+            <option value="kr">Karnataka</option>
+            <option value="m_p">Madhya Pradesh</option>
+            <option value="u_p">Uttar Pradesh</option>
+            <option value="rj">Rajasthan</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="country">City</label>
+          <select id="country">
+            <option value="kolkata">Kolkata</option>
+            <option value="delhi">Delhi</option>
+            <option value="chennai">Chennai</option>
+            <option value="prayagraj">Prayagraj</option>
+            <option value="bangalore">Bangalore</option>
+          </select>
+        </div>
+
+      </fieldset>
+    </div>
+
+    <div class="question">
+      <label style='margin-top: 8px;' for="description">Text Input Field (3 rows )</label>
+      <textarea id='description' rows="3"></textarea>
+
+    </div>
+
+
+
+
+    <div class="question">
+      <div style='margin-top: 8px;' class="innerContainer">
+        <div class='radioContainer'>
+          <label for="star">Please rate Us </label>
+          <input id='star' type="number" min="0" max="5" class='starInput'>
+        </div>
+        <div className='starContainer'>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <script>
+    const burgerImage =
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaF5FDGQBCw6sWWQRZmtZK367HWqZTrGaHm-GCIvqJPd27qTA2j097vKReRK3hhftVFC0&usqp=CAU.jpg';
+    const rollImage =
+      'https://spicecravings.com/wp-content/uploads/2020/12/Paneer-kathi-Roll-Featured-1.jpg';
+
+    const pizzaImage =
+      'https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8OHx8fGVufDB8fHx8&w=1000&q=80.jpg';
+
+    const dishImage = document.querySelector('img#dishImage');
+    dishImage.src = burgerImage;
+    const dishesRadio = document.querySelectorAll('input[name="dish"]');
+    dishesRadio.forEach((item) =>
+      item.addEventListener('change', (e) => {
+        const dishValue = e.target.value;
+        changeImage(dishValue);
+      })
+    );
+
+    const changeImage = (value) => {
+      let src = '';
+      switch (value) {
+        default:
+        case 'burger':
+          src = burgerImage;
+          break;
+        case 'roll':
+          src = rollImage;
+          break;
+        case 'pizza':
+          src = pizzaImage;
+          break;
+      }
+
+      dishImage.src = src;
+    };
+
+    
+    const starInput = document.querySelector('input.starInput');
+    const stars = document.querySelectorAll('span.fa-star');
+
+    const removeAllStars = () =>
+      stars.forEach((item) => item.classList.remove('checked'));
+
+    starInput.addEventListener('keyup', (e) => {
+      const value = +e.target.value;
+      removeAllStars();
+      if (value > 5) {
+        return;
+      }
+
+      Array.from(stars)
+        .slice(0, value)
+        .forEach((item) => {
+          console.log(item);
+          item.classList.add('checked');
+        });
+    });
+
+    function show(elem) {
+      elem.style.visibility = 'visible';
+    }
+
+    function hide(elem) {
+      elem.style.visibility = 'hidden';
+    }
+
+  </script>
+
+</body>
+
+</html>
